@@ -1,0 +1,151 @@
+@startuml
+class DualNumber{
++double valor
++double derivada
+
++DualNumber(double x, double y)
++DualNumber()
++getValor()
+}
+class Expression{
+
++evaluate(DualNumber s)
++differentiate(String var)
+}
+
+class X{
++String str
++X()
++evaluate(DualNumber assignment)
++differentiate(String var)
+}
+Class ExpressioDosValors{
++Expression leftExp
++Expression rightExp
++ExpressioDosValors(Expression leftExp, Expression rightExp)
++ExpressioDosValors(Expression leftExp, String var)
++ExpressioDosValors(String var1, String var2)
++ExpressioDosValors(String var1, double num)
++ExpressioDosValors(double num, String var1)
++ExpressioDosValors(double num1, double num2)
++ExpressioDosValors(double num1, Expression leftExpression)
++ExpressioDosValors(Expression leftExpression, double num1)
++ExpressioDosValors(String var, Expression leftExpression)
++getLeft()
++getRight()
+}
+
+Class ExpressioUnValor{
++Expression exp
++ExpressioUnValor(Double num)
++ExpressioUnValor(Expression exp)
++ExpressioUnValor(String var)
++getExpresion()
+}
+
+Class Constant{
++Double num
++Constant(double num)
++evaluate(DualNumber s)
++differentiate(String var)
+}
+class Sin{
++Sin(Expression expr)
++Sin(double num)
++evaluate(DualNumber s)
++differentiate(String var)
+}
+
+class Cos{
++Cos(Expression expr)
++Cos(double num)
++Cos(String var)
++evaluate(DualNumber s)
++differentiate(String var)
+}
+
+class Log{
++Log(Expression expr, Expression expr2)
++Log(Expression expr, String expr2)
++Log(String expr, Expression expr2)
++Log(String expr, String expr2)
++evaluate(DualNumber assignment)
++differentiate(String var)
+}
+
+class Add{
++Add(Expression expr, Expression expr2)
++Add(Expression expr, double expr2)
++Add(double expr, Expression expr2)
++Add(double expr, double expr2)
++evaluate(DualNumber s)
++differentiate(String var)
+}
+
+class Sub{
++Sub(Expression expr, Expression expr2)
++Sub(Expression expr, double expr2)
++Sub(double expr, Expression expr2)
++Sub(double expr, double expr2)
++evaluate(DualNumber s)
++differentiate(String var)
+}
+
+class Div{
++Div(Expression expr, Expression expr2)
++Div(Expression expr, String var)
++Div(String var, Expression expr2)
++Div(String var1, String var2)
++Div(String var1, double num)
++Div(double num, String var1)
++Div(double num1, double num2)
++Div(double num1, Expression expr2)
++Div(Expression expr, double num1)
++evaluate(DualNumber assignment)
++differentiate(String var)
+}
+
+Class Multiply{
++Multiply(Expression leftExpression, Expression rightExpression)
++Multiply(Expression leftExpression, String var)
++Multiply(String var, Expression leftExpression)
++Multiply(String var1, String var2)
++Multiply(String var1, double num)
++Multiply(double num, String var1)
++Multiply(double num1, double num2)
++Multiply(double num1, Expression leftExpression)
++Multiply(Expression leftExpression, double num1)
++evaluate(DualNumber assignment)
++differentiate(String var)
+}
+
+Class Exponent{
++Exponent(Expression leftExpression, Expression rightExpression)
++Exponent(Expression leftExpression, String var)
++Exponent(String var, Expression leftExpression)
++Exponent(String var1, String var2)
++Exponent(String var1, double num)
++Exponent(double num, String var1)
++Exponent(double num1, double num2)
++Exponent(double num1, Expression leftExpression)
++Exponent(Expression leftExpression, double num1)
++evaluate(DualNumber assignment)
++differentiate(String var)
+}
+
+
+
+Expression <|-down- X
+Expression <|-down- Constant
+Expression <|-down- ExpressioUnValor
+Expression <|-down- ExpressioDosValors
+ExpressioUnValor <|-down- Sin
+ExpressioUnValor <|-down- Cos
+ExpressioDosValors <|-down- Multiply
+ExpressioDosValors <|-down- Add
+ExpressioDosValors <|-down- Sub
+ExpressioDosValors <|-down- Div
+ExpressioDosValors <|-down- Log
+ExpressioDosValors <|-down- Exponent
+
+@enduml
